@@ -1,0 +1,48 @@
+1. Geotagged photo collection - problems faced - instagram
+Why flickr used?
+Parameters of a geotagged photo
+
+2. Open refine tool for cleaning - removing duplicates and photos with incorrect spatial coordinates. 
+
+3. Discovering tourist locations can be viewed as a clustering
+problem of identifying highly photographed locations. Done on lat and longitude.
+Why k means is not good and density based algos preferred?
+
+DBScan - how epsilon was visualised for calculation ****
+
+4. Building profiles of locations. mining of context of locations which
+is useful for travel recommendation.
+
+First step is to identify visits made by different users from
+photos taken by them on these locations(sort photos acc to time, visit duration threshold)
+Second step is to build the history of contexts in which
+locations have been visited. (TS used to derive seasonal info and weather context)
+The last step is to find the popular context of each location
+from the history of contexts derived from visits made to
+respective location(high frequency weather and season context as popular context)
+
+Build the location database. l= l1, l2..... (li = vli, pop(season), pop(weather))
+
+5. Semantic enrichment: tf-ldf for identifying most signifant tags(representative tags) for a particular location cluster.
+Higher the score, th more distinctive the tag is within that cluster
+
+6. Modeling preferences and similarities
+
+Building user location matrix - Build a weighted undirected graph(users u and locations l). travel interest of a user is determined here.
+building user-user similarity matrix - modified longest common subsequence (LCSS) to measure the similarity of two trips. 
+Each entry in M TT represents the similarity between u a and u b . A larger value means that both users are more similar in terms
+locations that have been preferred (visited) by ua.
+
+7. Recommendations: 
+
+Input: a query Q = (u a , s, w, d), where u a is a target user; s
+is the season information; w is the weather information; and d
+is the target city user u a will visit.
+Output: a list of locations in target city d that are
+recommended for user u a to visit
+
+Collaborative filtering
+
+6. Additional injected params: live events(+)
+
+
